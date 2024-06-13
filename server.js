@@ -33,9 +33,8 @@ app.get('/', function (req, res) {
 signalServer.on('discover', (request) => {
    log('discover');
    let memberId = request.socket.id;
-   let roomId = request.discoveryData;
-  console.log(roomId)
-  console.log(memberId)
+   log(request.discoveryData);
+   let roomId = request.discoveryData || '475784';
    let members = rooms.get(roomId);
    if (!members) {
       members = new Set();
@@ -46,6 +45,7 @@ signalServer.on('discover', (request) => {
    request.discover({
       peers: Array.from(members)
    });
+   log(request.discoveryData, request.socket.id )
    log('joined ' + roomId + ' ' + memberId)
 })
 
