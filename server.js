@@ -22,9 +22,9 @@ if (process.argv[2] && process.argv[2] === '-ssl') {
 //    log('Using http.');
 
 const io = require('socket.io')(server, { cors: {
-   origin: '*',
+   origin: 'https://medicall.crunux.me',
    methods: ["GET", "POST"]
-}, origins: false });
+}});
 const signalServer = require('simple-signal-server')(io)
 const port = process.env.PORT || 3000;
 const rooms = new Map()
