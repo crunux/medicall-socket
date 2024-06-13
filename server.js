@@ -34,7 +34,7 @@ signalServer.on('discover', (request) => {
    log('discover');
    let memberId = request.socket.id;
    log(request.discoveryData);
-   let roomId = request.discoveryData || '475784';
+   let roomId = request.discoveryData ? request.discoveryData : '475784';
    let members = rooms.get(roomId);
    if (!members) {
       members = new Set();
