@@ -19,10 +19,7 @@ let server = {};
 server = require('http').createServer(app);
    log('Using http.');
 
-const io = require('socket.io')(server, { cors: {
-    origin: "*",
-    methods: ["GET", "POST"]
-  }});
+const io = require('socket.io')(server, { cors: true, origins: false });
 const signalServer = require('simple-signal-server')(io)
 const port = process.env.PORT || 3000;
 const rooms = new Map()
