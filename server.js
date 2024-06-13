@@ -1,9 +1,9 @@
-const express = require('express');
+const app = require('express')();
 const cors = require('cors')
 let server = {};
 
-const app = express()
-app.use(express.json(), cors)
+
+app.use(cors)
 
 if (process.argv[2] && process.argv[2] === '-ssl') {
    var fs = require('fs');
