@@ -1,7 +1,9 @@
-const { METHODS } = require('http');
-
-const app = require('express')();
+const express = require('express');
+const cors = require('cors')
 let server = {};
+
+const app = express()
+app.use(express.json(), cors)
 
 if (process.argv[2] && process.argv[2] === '-ssl') {
    var fs = require('fs');
@@ -22,8 +24,8 @@ if (process.argv[2] && process.argv[2] === '-ssl') {
 //    log('Using http.');
 
 const io = require('socket.io')(server, { cors: {
-   origin: 'https://medicall.crunux.me',
-   methods: ["GET", "POST"]
+   // origin: 'https://medicall.crunux.me',
+   // methods: ["GET", "POST"]
 }});
 const signalServer = require('simple-signal-server')(io)
 const port = process.env.PORT || 3000;
