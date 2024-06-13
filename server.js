@@ -1,3 +1,5 @@
+const { METHODS } = require('http');
+
 const app = require('express')();
 let server = {};
 
@@ -19,7 +21,10 @@ if (process.argv[2] && process.argv[2] === '-ssl') {
 // server = require('http').createServer(app);
 //    log('Using http.');
 
-const io = require('socket.io')(server, { cors: true, origins: false });
+const io = require('socket.io')(server, { cors: {
+   origin: '*',
+   methods: ["GET", "POST"]
+}, origins: false });
 const signalServer = require('simple-signal-server')(io)
 const port = process.env.PORT || 3000;
 const rooms = new Map()
