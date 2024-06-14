@@ -1,26 +1,25 @@
 const app = require('express')();
 let server = {};
+// if (process.argv[2] && process.argv[2] === '-ssl') {
+//  var fs = require('fs');
+ //  var options = {
+  //   key: fs.readFileSync('key.pem'),
+  //   cert: fs.readFileSync('cert.pem'),
+  //   requestCert: false,
+  //   rejectUnauthorized: false
+  //};
+  // server = require('https').createServer(options, app);
+  // log('Using https.');
+ //} else {
+ // server = require('http').createServer(app);
+ // log('Using http.');
+ // }
 
-if (process.argv[2] && process.argv[2] === '-ssl') {
-  var fs = require('fs');
-   var options = {
-     key: fs.readFileSync('key.pem'),
-     cert: fs.readFileSync('cert.pem'),
-     requestCert: false,
-     rejectUnauthorized: false
-  };
-  server = require('https').createServer(options, app);
-  log('Using https.');
-} else {
-  server = require('http').createServer(app);
-  log('Using http.');
-}
-
-//server = require('http').createServer(app);
-//log('Using http.');
+server = require('http').createServer(app);
+log('Using http.');
 
 const io = require('socket.io')(server, { cors: {
-    origin: 'https://medicall.crunux.me',
+    origin: '*',
     methods:['GET','POST']
   }});
 const signalServer = require('simple-signal-server')(io)
