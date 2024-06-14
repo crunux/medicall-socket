@@ -1,11 +1,11 @@
 {
-  "name": "vue-webrtc-lobby",
-  "version": "1.0.0",
-  "description": "vue-webrtc-lobby",
+  "name": "webrtc-socket",
+  "version": "1.0.3",
+  "description": "webrtc-socket-server",
   "author": {
-    "name": "Andy Weston",
-    "email": "aweston@westonsoftware.com",
-    "url": "https://github.com/westonsoftware"
+    "name": "Joan Cruz",
+    "email": "joancruz0502@hotmail.com.com",
+    "url": "https://github.com/crunux"
   },
   "scripts": {
     "start": "node server -ssl"
