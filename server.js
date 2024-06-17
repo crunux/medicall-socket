@@ -33,8 +33,9 @@ app.get('/', function (req, res) {
          <style>
                     
             body {
-               font-size: 10px;
+               font-size: 24px;
                font-family:Calibri;
+               height: calc(100vh - 10%);
             }     
             table {
                font-size: 24px;
@@ -47,6 +48,18 @@ app.get('/', function (req, res) {
                display: flex;
                justify-content:center;
                items-align: center;
+            }
+            footer{
+               margin: 0;
+               margin-top: 10px;
+               padding: 0;
+               display: flex;
+               justify-content:center;
+               items-align: center;
+               font-size: 20px;
+               font-weight: 700;
+               font-family:Calibri;
+               gap: 2px;
             }
                                     
          </style>
@@ -68,7 +81,8 @@ app.get('/', function (req, res) {
                   <td align ="right">${sum}</td>
                </tr>       
             </table>
-         </div>  
+         </div>
+         <footer><span>build by</span> <a href="https://crunux.me"> crunux</a></footer>
    `
    //'Lobby server<br/>rooms: ${rooms.size}<br/>members: ${sum}
    res.send(html);
