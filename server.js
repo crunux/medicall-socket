@@ -82,7 +82,7 @@ app.get('/', function (req, res) {
                </tr>       
             </table>
          </div>
-         <footer><span>build by</span> <a href="https://crunux.me"> crunux</a></footer>
+         <footer><span>build by</span> <a href="https://crunux.me" target="_blank"> crunux</a></footer>
    `
    //'Lobby server<br/>rooms: ${rooms.size}<br/>members: ${sum}
    res.send(html);
