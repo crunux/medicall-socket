@@ -29,7 +29,49 @@ const rooms = new Map()
 app.get('/', function (req, res) {
    var sum = 0;
    rooms.forEach((v, k) => sum = sum + v.size);
-   res.send('Lobby server<br/>rooms: ' + rooms.size + '<br/>members: ' + sum);
+   html=`
+         <style>
+                    
+            body {
+               font-size: 10px;
+               font-family:Calibri;
+            }     
+            table {
+               font-size: 24px;
+               font-family:Calibri;
+               width: 375px;
+            }
+            .card{
+               margin: 0;
+               padding: 0;
+               display: flex;
+               justify-content:center;
+               items-align: center;
+            }
+                                    
+         </style>
+                                    
+         <div class="card">
+            <table>
+               <tr>
+                  <th align="center">LOBBY SERVER</th>
+               </tr>
+               <tr>
+                  <th align="center" style="color: gray;">waiting connections...</th>
+               </tr>
+               <tr>
+                  <td align ="left">Rooms</td>
+                  <td align ="right">${rooms.size}</td>
+               </tr>
+               <tr>
+                  <td align ="left">Members</td>
+                  <td align ="right">${sum}</td>
+               </tr>       
+            </table>
+         </div>  
+   `
+   //'Lobby server<br/>rooms: ${rooms.size}<br/>members: ${sum}
+   res.send(html);
 });
 
 signalServer.on('discover', (request) => {
